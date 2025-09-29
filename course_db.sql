@@ -135,6 +135,17 @@ CREATE TABLE `users` (
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
+-- --------------------------------------------------------
+
+-- Table structure for table `password_resets`
+
+CREATE TABLE `password_resets` (
+  `email` varchar(50) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `expires_at` datetime NOT NULL,
+  PRIMARY KEY (`email`),
+  UNIQUE KEY `token` (`token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

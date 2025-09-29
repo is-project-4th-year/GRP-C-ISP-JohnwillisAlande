@@ -33,19 +33,21 @@ if(isset($_COOKIE['user_id'])){
 
 <section class="teachers">
 
-   <h1 class="heading">expert tutors</h1>
+   <h1 class="heading">Expert tutors</h1>
 
    <form action="search_tutor.php" method="post" class="search-tutor">
-      <input type="text" name="search_tutor" maxlength="100" placeholder="search tutor..." required>
+      <input type="text" name="search_tutor" maxlength="100" placeholder="Search tutor..." required>
       <button type="submit" name="search_tutor_btn" class="fas fa-search"></button>
    </form>
 
    <div class="box-container">
 
       <div class="box offer">
-         <h3>become a tutor</h3>
-         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum, magnam!</p>
-         <a href="admin/register.php" class="inline-btn">get started</a>
+         <h3>Become a tutor</h3>
+            <p>Share your expertise and inspire learners by joining our 
+               platform as a tutor. Help students achieve their goals and 
+               grow your professional network.</p>
+         <a href="admin/register.php" class="inline-btn">Get started</a>
       </div>
 
       <?php
@@ -92,7 +94,7 @@ if(isset($_COOKIE['user_id'])){
       <?php
             }
          }else{
-            echo '<p class="empty">no tutors found!</p>';
+            echo '<p class="empty">No tutors found!</p>';
          }
       ?>
 

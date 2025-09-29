@@ -63,7 +63,7 @@ if(isset($_COOKIE['user_id'])){
       <?php
          }
       }else{
-         echo '<p class="empty">no courses added yet!</p>';
+         echo '<p class="empty">No courses added yet!</p>';
       }
       ?>
 

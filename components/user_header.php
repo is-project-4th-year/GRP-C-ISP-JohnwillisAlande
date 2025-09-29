@@ -1,4 +1,16 @@
 <?php
+// Prevent browser caching for authenticated pages
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
+// Ensure $user_id is always set
+if (!isset($user_id)) {
+   if (isset($_COOKIE['user_id'])) {
+      $user_id = $_COOKIE['user_id'];
+   } else {
+      $user_id = '';
+   }
+}
 if(isset($message)){
    foreach($message as $message){
       echo '
@@ -18,7 +30,7 @@ if(isset($message)){
       <a href="home.php" class="logo">ApexLearn</a>
 
       <form action="search_course.php" method="post" class="search-form">
-         <input type="text" name="search_course" placeholder="search courses..." required maxlength="100">
+         <input type="text" name="search_course" placeholder="Search courses..." required maxlength="100">
          <button type="submit" class="fas fa-search" name="search_course_btn"></button>
       </form>
 
@@ -44,7 +56,7 @@ if(isset($message)){
             <a href="login.php" class="option-btn">Login</a>
             <a href="register.php" class="option-btn">Register</a>
          </div>
-         <a href="components/user_logout.php" onclick="return confirm('Log out from this website?');" class="delete-btn">logout</a>
+         <a href="logout.php" onclick="return confirm('Log out from this website?');" class="delete-btn">logout</a>
          <?php
             }else{
          ?>
@@ -79,15 +91,15 @@ if(isset($message)){
          ?>
          <img src="uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
          <h3><?= $fetch_profile['name']; ?></h3>
-         <span>student</span>
-         <a href="profile.php" class="btn">view profile</a>
+         <span>Student</span>
+         <a href="profile.php" class="btn">View profile</a>
          <?php
             }else{
          ?>
-         <h3>please login or register</h3>
+         <h3>Please login or register</h3>
           <div class="flex-btn" style="padding-top: .5rem;">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">Login</a>
+            <a href="register.php" class="option-btn">Register</a>
          </div>
          <?php
             }

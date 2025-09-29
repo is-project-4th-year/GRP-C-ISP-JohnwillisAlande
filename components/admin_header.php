@@ -1,4 +1,8 @@
 <?php
+// Prevent browser caching for authenticated admin pages
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
 if(isset($message)){
    foreach($message as $message){
       echo '
@@ -44,7 +48,7 @@ if(isset($message)){
             <a href="login.php" class="option-btn">login</a>
             <a href="register.php" class="option-btn">register</a>
          </div>
-         <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
+         <a href="logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
          <?php
             }else{
          ?>
@@ -101,7 +105,7 @@ if(isset($message)){
       <a href="playlists.php"><i class="fa-solid fa-bars-staggered"></i><span>playlists</span></a>
       <a href="contents.php"><i class="fas fa-graduation-cap"></i><span>contents</span></a>
       <a href="comments.php"><i class="fas fa-comment"></i><span>comments</span></a>
-      <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');"><i class="fas fa-right-from-bracket"></i><span>logout</span></a>
+   <a href="logout.php" onclick="return confirm('logout from this website?');"><i class="fas fa-right-from-bracket"></i><span>logout</span></a>
    </nav>
 
 </div>

@@ -15,10 +15,8 @@ if(isset($_POST['submit'])){
    $name = filter_var($name, FILTER_SANITIZE_STRING);
    $email = $_POST['email'];
    $email = filter_var($email, FILTER_SANITIZE_STRING);
-   $pass = sha1($_POST['pass']);
-   $pass = filter_var($pass, FILTER_SANITIZE_STRING);
-   $cpass = sha1($_POST['cpass']);
-   $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
+   $pass = $_POST['pass'];
+   $cpass = $_POST['cpass'];
 
    $image = $_FILES['image']['name'];
    $image = filter_var($image, FILTER_SANITIZE_STRING);
@@ -32,20 +30,21 @@ if(isset($_POST['submit'])){
    $select_user->execute([$email]);
    
    if($select_user->rowCount() > 0){
-      $message[] = 'email already taken!';
+      $message[] = 'Email already registered!';
    }else{
       if($pass != $cpass){
-         $message[] = 'confirm passowrd not matched!';
+         $message[] = 'Confirm password does not match!';
       }else{
+         $hashed = password_hash($pass, PASSWORD_DEFAULT);
          $insert_user = $conn->prepare("INSERT INTO `users`(id, name, email, password, image) VALUES(?,?,?,?,?)");
-         $insert_user->execute([$id, $name, $email, $cpass, $rename]);
+         $insert_user->execute([$id, $name, $email, $hashed, $rename]);
          move_uploaded_file($image_tmp_name, $image_folder);
          
-         $verify_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ? LIMIT 1");
-         $verify_user->execute([$email, $pass]);
+         $verify_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? LIMIT 1");
+         $verify_user->execute([$email]);
          $row = $verify_user->fetch(PDO::FETCH_ASSOC);
          
-         if($verify_user->rowCount() > 0){
+         if($row && password_verify($pass, $row['password'])){
             setcookie('user_id', $row['id'], time() + 60*60*24*30, '/');
             header('location:home.php');
          }
@@ -78,25 +77,25 @@ if(isset($_POST['submit'])){
 <section class="form-container">
 
    <form class="register" action="" method="post" enctype="multipart/form-data">
-      <h3>create account</h3>
+      <h3>Create Account</h3>
       <div class="flex">
          <div class="col">
-            <p>your name <span>*</span></p>
-            <input type="text" name="name" placeholder="eneter your name" maxlength="50" required class="box">
-            <p>your email <span>*</span></p>
-            <input type="email" name="email" placeholder="enter your email" maxlength="20" required class="box">
+            <p>Your name <span>*</span></p>
+            <input type="text" name="name" placeholder="Amani Havi" maxlength="50" required class="box">
+            <p>Your email <span>*</span></p>
+            <input type="email" name="email" placeholder="amanihavi@gmail.com" maxlength="20" required class="box">
          </div>
          <div class="col">
-            <p>your password <span>*</span></p>
-            <input type="password" name="pass" placeholder="enter your password" maxlength="20" required class="box">
-            <p>confirm password <span>*</span></p>
-            <input type="password" name="cpass" placeholder="confirm your password" maxlength="20" required class="box">
+            <p>Your password <span>*</span></p>
+            <input type="password" name="pass" placeholder="Enter your password" maxlength="20" required class="box">
+            <p>Confirm password <span>*</span></p>
+            <input type="password" name="cpass" placeholder="Confirm your password" maxlength="20" required class="box">
          </div>
       </div>
-      <p>select pic <span>*</span></p>
+      <p>Select profile picture <span>*</span></p>
       <input type="file" name="image" accept="image/*" required class="box">
-      <p class="link">already have an account? <a href="login.php">login now</a></p>
-      <input type="submit" name="submit" value="register now" class="btn">
+      <p class="link">Already have an account? <a href="login.php">Login now</a></p>
+      <input type="submit" name="submit" value="Register now" class="btn">
    </form>
 
 </section>

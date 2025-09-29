@@ -65,10 +65,10 @@ $total_bookmarked = $select_bookmark->rowCount();
          }else{ 
       ?>
       <div class="box" style="text-align: center;">
-         <h3 class="title">please login or register</h3>
+         <h3 class="title">Please login or register</h3>
           <div class="flex-btn" style="padding-top: .5rem;">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">Login</a>
+            <a href="register.php" class="option-btn">Register</a>
          </div>
       </div>
       <?php
@@ -76,34 +76,36 @@ $total_bookmarked = $select_bookmark->rowCount();
       ?>
 
       <div class="box">
-         <h3 class="title">top categories</h3>
+         <h3 class="title">Top categories</h3>
          <div class="flex">
-            <a href="search_course.php?"><i class="fas fa-code"></i><span>development</span></a>
-            <a href="#"><i class="fas fa-chart-simple"></i><span>business</span></a>
-            <a href="#"><i class="fas fa-pen"></i><span>design</span></a>
-            <a href="#"><i class="fas fa-chart-line"></i><span>marketing</span></a>
-            <a href="#"><i class="fas fa-music"></i><span>music</span></a>
-            <a href="#"><i class="fas fa-camera"></i><span>photography</span></a>
-            <a href="#"><i class="fas fa-cog"></i><span>software</span></a>
-            <a href="#"><i class="fas fa-vial"></i><span>science</span></a>
+            <a href="search_course.php?"><i class="fas fa-code"></i><span>Development</span></a>
+            <a href="#"><i class="fas fa-chart-simple"></i><span>Business</span></a>
+            <a href="#"><i class="fas fa-pen"></i><span>Design</span></a>
+            <a href="#"><i class="fas fa-chart-line"></i><span>Marketing</span></a>
+            <a href="#"><i class="fas fa-music"></i><span>Music</span></a>
+            <a href="#"><i class="fas fa-camera"></i><span>Photography</span></a>
+            <a href="#"><i class="fas fa-cog"></i><span>Software</span></a>
+            <a href="#"><i class="fas fa-vial"></i><span>Science</span></a>
          </div>
       </div>
 
       <div class="box">
-         <h3 class="title">popular topics</h3>
+         <h3 class="title">Popular topics</h3>
          <div class="flex">
             <a href="#"><i class="fab fa-html5"></i><span>HTML</span></a>
             <a href="#"><i class="fab fa-css3"></i><span>CSS</span></a>
-            <a href="#"><i class="fab fa-js"></i><span>javascript</span></a>
-            <a href="#"><i class="fab fa-react"></i><span>react</span></a>
+            <a href="#"><i class="fab fa-js"></i><span>JavaScript</span></a>
+            <a href="#"><i class="fab fa-react"></i><span>React</span></a>
             <a href="#"><i class="fab fa-php"></i><span>PHP</span></a>
-            <a href="#"><i class="fab fa-bootstrap"></i><span>bootstrap</span></a>
+            <a href="#"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></a>
          </div>
       </div>
 
       <div class="box tutor">
-         <h3 class="title">become a tutor</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, laudantium.</p>
+         <h3 class="title">Become a tutor</h3>
+         <p>Share your expertise and inspire learners by joining our 
+            platform as a tutor. Help students achieve their goals and 
+            grow your professional network.</p>
          <a href="admin/register.php" class="inline-btn">get started</a>
       </div>
 
@@ -117,7 +119,7 @@ $total_bookmarked = $select_bookmark->rowCount();
 
 <section class="courses">
 
-   <h1 class="heading">latest courses</h1>
+   <h1 class="heading">Latest courses</h1>
 
    <div class="box-container">
 
@@ -147,14 +149,14 @@ $total_bookmarked = $select_bookmark->rowCount();
       <?php
          }
       }else{
-         echo '<p class="empty">no courses added yet!</p>';
+         echo '<p class="empty">No courses added yet!</p>';
       }
       ?>
 
    </div>
 
    <div class="more-btn">
-      <a href="courses.php" class="inline-option-btn">view more</a>
+      <a href="courses.php" class="inline-option-btn">View more</a>
    </div>
 
 </section>

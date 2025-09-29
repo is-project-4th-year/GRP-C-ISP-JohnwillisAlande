@@ -1,6 +1,5 @@
 <?php
 session_start();
-include 'connect.php';
 
 // Unset all session variables
 $_SESSION = array();
@@ -8,9 +7,12 @@ $_SESSION = array();
 // Destroy the session
 session_destroy();
 
-// Remove tutor_id cookie if set
+// Remove user_id and tutor_id cookies if set
+if (isset($_COOKIE['user_id'])) {
+    setcookie('user_id', '', time() - 3600, '/');
+}
 if (isset($_COOKIE['tutor_id'])) {
-   setcookie('tutor_id', '', time() - 3600, '/');
+    setcookie('tutor_id', '', time() - 3600, '/');
 }
 
 // Prevent browser caching
@@ -18,7 +20,10 @@ header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 header('Pragma: no-cache');
 header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
 
-// Redirect to admin login page
-header('Location: ../admin/login.php');
+// Redirect to correct login page
+if (isset($_COOKIE['tutor_id'])) {
+    header('Location: admin/login.php');
+} else {
+    header('Location: login.php');
+}
 exit;
-?>

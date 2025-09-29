@@ -94,6 +94,10 @@ $total_bookmarked = $select_bookmark->rowCount();
 
    </div>
 
+      <div style="text-align:center; margin-top: 2rem;">
+         <a href="logout.php" onclick="return confirm('Are you sure you want to log out?');" class="inline-btn" style="background:#e74c3c; color:#fff;">Logout</a>
+      </div>
+
 </section>
 
 <!-- profile section ends -->
@@ -109,15 +113,6 @@ $total_bookmarked = $select_bookmark->rowCount();
 
 
 
-<!-- footer section starts  -->
-
-<footer class="footer">
-
-   &copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!
-
-</footer>
-
-<!-- footer section ends -->
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>

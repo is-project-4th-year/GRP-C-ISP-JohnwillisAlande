@@ -16,7 +16,7 @@ if(isset($_COOKIE['user_id'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>about</title>
+   <title>About</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -41,8 +41,11 @@ if(isset($_COOKIE['user_id'])){
 
       <div class="content">
          <h3>Why choose us?</h3>
-            <p>Our platform is dedicated to providing high-quality education through expertly designed courses, interactive learning experiences, and personalized support. We empower students to achieve their academic and career goals with a focus on practical skills and real-world applications.</p>
-         <a href="courses.html" class="inline-btn">our courses</a>
+            <p>Our platform is dedicated to providing high-quality education 
+               through expertly designed courses, interactive learning experiences, 
+               and personalized support. We empower students to achieve their academic 
+               and career goals with a focus on practical skills and real-world applications.</p>
+         <a href="courses.html" class="inline-btn">Our Courses</a>
       </div>
 
    </div>
@@ -96,7 +99,10 @@ if(isset($_COOKIE['user_id'])){
    <div class="box-container">
 
       <div class="box">
-          <p>Edu Platform has transformed my learning experience. The courses are well-structured, and the instructors are always ready to help. I feel more confident in my skills and knowledge.</p>
+          <p>ApexLearn has transformed my learning experience. 
+            The courses are well-structured, and the instructors are 
+            always ready to help. I feel more confident in my skills 
+            and knowledge.</p>
          <div class="user">
             <img src="images/pic-2.jpg" alt="">
             <div>
@@ -106,7 +112,7 @@ if(isset($_COOKIE['user_id'])){
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
+                  <i class="fas fa-star"></i>
                </div>
             </div>
          </div>
@@ -131,7 +137,7 @@ if(isset($_COOKIE['user_id'])){
       </div>
 
       <div class="box">
-          <p>Thanks to Edu Platform, I was able to secure a job in my field. 
+          <p>Thanks to ApexLearn, I was able to secure a job in my field. 
             The career guidance and job placement support were invaluable throughout my journey.</p>
          <div class="user">
             <img src="images/pic-4.jpg" alt="">
@@ -160,14 +166,14 @@ if(isset($_COOKIE['user_id'])){
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
+                  <i class="fas fa-star"></i>
                </div>
             </div>
          </div>
       </div>
 
       <div class="box">
-          <p>I highly recommend Edu Platform to anyone looking to advance their education. 
+          <p>I highly recommend ApexLearn to anyone looking to advance their education. 
             The flexible schedule and diverse course offerings fit perfectly with my busy lifestyle.</p>
          <div class="user">
             <img src="images/pic-6.jpg" alt="">
@@ -178,14 +184,14 @@ if(isset($_COOKIE['user_id'])){
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
+                  <i class="fas fa-star"></i>
                </div>
             </div>
          </div>
       </div>
 
       <div class="box">
-          <p>Joining Edu Platform was the best decision for my professional growth. 
+          <p>Joining ApexLearn was the best decision for my professional growth. 
             The learning environment is motivating, and the resources are top-notch.</p>
          <div class="user">
             <img src="images/pic-7.jpg" alt="">
@@ -196,7 +202,7 @@ if(isset($_COOKIE['user_id'])){
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
+                  <i class="fas fa-star"></i>
                </div>
             </div>
          </div>

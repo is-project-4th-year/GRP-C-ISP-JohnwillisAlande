@@ -12,18 +12,17 @@ if(isset($_POST['submit'])){
 
    $email = $_POST['email'];
    $email = filter_var($email, FILTER_SANITIZE_STRING);
-   $pass = sha1($_POST['pass']);
-   $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+   $pass = $_POST['pass'];
 
-   $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ? LIMIT 1");
-   $select_user->execute([$email, $pass]);
+   $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? LIMIT 1");
+   $select_user->execute([$email]);
    $row = $select_user->fetch(PDO::FETCH_ASSOC);
-   
-   if($select_user->rowCount() > 0){
+
+   if($row && password_verify($pass, $row['password'])){
      setcookie('user_id', $row['id'], time() + 60*60*24*30, '/');
      header('location:home.php');
    }else{
-      $message[] = 'incorrect email or password!';
+      $message[] = 'Incorrect email or password!';
    }
 
 }
@@ -52,13 +51,14 @@ if(isset($_POST['submit'])){
 <section class="form-container">
 
    <form action="" method="post" enctype="multipart/form-data" class="login">
-      <h3>welcome back!</h3>
-      <p>your email <span>*</span></p>
-      <input type="email" name="email" placeholder="enter your email" maxlength="50" required class="box">
-      <p>your password <span>*</span></p>
-      <input type="password" name="pass" placeholder="enter your password" maxlength="20" required class="box">
-      <p class="link">don't have an account? <a href="register.php">register now</a></p>
-      <input type="submit" name="submit" value="login now" class="btn">
+      <h3>Welcome back to ApexLearn!</h3>
+      <p>Your email <span>*</span></p>
+      <input type="email" name="email" placeholder="Enter your email" maxlength="50" required class="box">
+      <p>Your password <span>*</span></p>
+      <input type="password" name="pass" placeholder="Enter your password" maxlength="20" required class="box">
+      <p class="link">Don't have an account? <a href="register.php">Register now</a></p>
+      <p class="link"><a href="forgot_password.php">Forgot Password?</a></p>
+      <input type="submit" name="submit" value="Login now" class="btn">
    </form>
 
 </section>

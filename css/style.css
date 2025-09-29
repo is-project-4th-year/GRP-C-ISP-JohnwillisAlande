@@ -52,7 +52,7 @@ body.dark{
    --black:#fff;
    --light-color:#aaa;
    --light-bg:#333;
-   --border:.1rem solid rgba(255,255,255,.2);
+   --border:.1rem solid rgba(26, 188, 156, 1);
 }
 
 body.active{

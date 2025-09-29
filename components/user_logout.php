@@ -1,9 +1,24 @@
 <?php
+session_start();
+include 'connect.php';
 
-   include 'connect.php';
+// Unset all session variables
+$_SESSION = array();
 
-   setcookie('user_id', '', time() - 1, '/');
+// Destroy the session
+session_destroy();
 
-   header('location:../home.php');
+// Remove user_id cookie if set
+if (isset($_COOKIE['user_id'])) {
+   setcookie('user_id', '', time() - 3600, '/');
+}
 
+// Prevent browser caching
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
+
+// Redirect to login page
+header('Location: ../login.php');
+exit;
 ?>
